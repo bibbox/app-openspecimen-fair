@@ -6,38 +6,33 @@ networks:
 
 services:
   # base app
-  openspecimen-web:
-    image: bibbox/openspecimen:v8-0-x
-    container_name: openspecimen-web
+  openspecimen-fdp-web:
+    image: bibbox/openspecimen:v8-2-RC2
+    container_name: openspecimen-fdp-web
     restart: unless-stopped
     networks:
       - bibbox-default-network
     links:
-      - openspecimen-db:openspecimen-db
+      - openspecimen-fdp-db:openspecimen-db
     environment:
       - DATABASE_HOST=openspecimen-db
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
-      - TOMCAT_MANAGER_USER=openspecimen
-      - TOMCAT_MANAGER_PASSWORD=openspecimen
-      - INSTITUTE_NAME=BIBBOX Demo Biobank
-      - EMAIL_ADRESS="admin@bibbox.org"
-      - FIRST_NAME=admin
-      - LAST_NAME=Bibbox
-      - LOGIN_NAME=bibboxadmin  
     depends_on:
-      - openspecimen-db
+      - openspecimen-fdp-db
     volumes:
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - ./images/openspecimen/configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./images/openspecimen/configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh
     ports:
       - "9000:8080"
 
-  openspecimen-db:
-    image: mysql:8.0
-    container_name: openspecimen-db
+  openspecimen-fdp-db:
+    image: mysql:8.0.26
+    container_name: openspecimen-fdp-db
     restart: unless-stopped
     networks:
       - bibbox-default-network
@@ -48,12 +43,13 @@ services:
       - MYSQL_PASSWORD=openspecimen
     volumes:
       - ./data/mysql:/var/lib/mysql
-      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf #read only
-
+      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
+    cap_add:
+      - SYS_NICE 
   # fdp containers
-  jupyter:
+  jupyter-openspecimen-fdp:
     image: jupyter/datascience-notebook
-    container_name:  jupyter
+    container_name:  openspecimen-fdp-jupyter
     restart: unless-stopped
     networks:
       - bibbox-default-network
@@ -64,15 +60,19 @@ services:
 
   fdp:
     image: "nlesc/fairdatapoint"
+    container_name:  openspecimen-fdp-fdp
     restart: unless-stopped
     depends_on:
       - virtuoso
     environment:
-      - FDP_HOST: "0.0.0.0"
-      - FDP_PORT: "8888"
+      - FDP_HOST=0.0.0.0
+      - FDP_PORT=8888
+    networks:
+      - bibbox-default-network
 
   fdpsearch:
     image: "nlesc/fairdatapoint-search"
+    container_name:  openspecimen-fdp-fdpsearch
     restart: unless-stopped
     ports:
       - "8088:8088"
@@ -81,11 +81,17 @@ services:
       - DEBUG=false
     depends_on:
       - virtuoso
+    networks:
+      - bibbox-default-network
 
   virtuoso:
     image: "nlesc/virtuoso"
+    container_name:  openspecimen-fdp-virtuoso
     restart: unless-stopped
     environment:
       - SPARQL_UPDATE=true
     volumes:
-      - ./data/virtuoso:/data
+      - ./data/virtuoso:/data   
+    networks:
+      - bibbox-default-network
+
