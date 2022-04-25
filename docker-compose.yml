@@ -71,6 +71,13 @@ services:
       - bibbox-default-network
     ports:
       - "8080:8888"
+    command: /bin/sh -c 'fdp-run $${FDP_HOST} $${FDP_PORT} --db http://db:8890/sparql'
+    healthcheck:
+        test: curl --silent --fail http://0.0.0.0:$${FDP_PORT} || exit 1
+        interval: 5s
+    links:
+      - virtuoso:db
+    
     
 
   fdpsearch:
