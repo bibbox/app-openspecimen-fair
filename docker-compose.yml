@@ -59,7 +59,7 @@ services:
         - ./home/jovyan/work:/home/jovyan/work
 
   fdp:
-    image: "nlesc/fairdatapoint"
+    image: nlesc/fairdatapoint:0.7.2
     container_name:  openspecimen-fdp-fdp
     restart: unless-stopped
     depends_on:
