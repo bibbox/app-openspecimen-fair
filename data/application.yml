@@ -1,0 +1,7 @@
+#instance:
+#    clientUrl: http://localhost:8080
+    
+repository:
+    type: 5
+    blazegraph:
+        url: http://blazegraph:8080/blazegraph

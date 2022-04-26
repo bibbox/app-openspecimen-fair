@@ -1,1 +1,6 @@
-data/
+data/blazegraph/
+data/mongo/
+data/mysql/
+data/os-data/
+data/os-plugins/
+
