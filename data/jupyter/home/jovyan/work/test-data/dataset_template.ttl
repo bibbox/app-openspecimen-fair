@@ -1,0 +1,25 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix loc: <§§BASEURL/>.
+@prefix c: <§§BASEURL/catalog/>.
+
+loc:new
+    a dcat:Dataset, dcat:Resource;
+    dct:description "§§DESCRIPTION";
+    dct:hasVersion "§§VERSION";
+    dct:isPartOf c:§§CATALOGID;
+    dct:issued §§ISSUED;
+    dct:language <§§LANGUAGE>;
+    dct:license <§§LICENSE>;
+    dct:modified §§MODIFIED;
+    dct:publisher [ a foaf:Agent; foaf:name "§§PUBLISHER" ];
+    dct:rights <§§RIGHTS>;
+    dct:title "§§TITLE";
+    dcat:contactPoint <§§CONTACTPOINT>;
+    dcat:keyword §§KEYWORDS;
+    dcat:landingPage <§§LANDINGPAGE>;
+    dcat:theme §§THEMES;
+    .
+
