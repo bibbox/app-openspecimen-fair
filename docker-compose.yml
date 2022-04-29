@@ -48,7 +48,7 @@ services:
       - SYS_NICE 
   # fdp containers
   jupyter-openspecimen-fdp:
-    image: jupyter/datascience-notebook
+    image: jupyter/datascience-notebook:notebook-6.4.11
     container_name:  openspecimen-fdp-jupyter
     restart: unless-stopped
     networks:
@@ -73,7 +73,8 @@ services:
     links:
       - blazegraph:blazegraph
       - mongo:mongo
-      
+#    environment:
+#      - CLIENTURL="http://localhost:8088"
 #    depends_on:
 #      - virtuoso
 #    environment:
@@ -84,7 +85,6 @@ services:
 #        interval: 5s
 #    links:
 #      - virtuoso:db
-    
 
   fdp-client:
     image: fairdata/fairdatapoint-client:1.12.0
