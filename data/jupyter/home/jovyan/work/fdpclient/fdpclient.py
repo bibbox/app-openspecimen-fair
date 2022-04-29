@@ -35,6 +35,11 @@ class FDPClient:
 
 
     def gettoken(self, email, password):
+        """
+        :param email:
+        :param password:
+        :return:
+        """
         login = {"email":email,
                "password": password}
         #logger.info(json.dumps(login))
@@ -67,7 +72,7 @@ class FDPClient:
         try:
             data = self._check_data(data, format)
             r = requests.post(f'{self.baseurl}/{type}', data=data, headers=create_headers)
-            return r.headers['Location'].lstrip(f'{self.publicurl}/{type}/')
+            return self._removePrefix(r.headers['Location'],f'{self.publicurl}/{type}/')
         except Exception as error:
             print(f'Unexpected error when connecting to {self.baseurl}/{type}\n')
             raise error
@@ -117,10 +122,11 @@ class FDPClient:
         return g
 
     def delete(self,type, id, **kwargs):
-        """Send a delete request.
-        Args:
-            url(str): URL for deleting a metadata.
-            **kwargs: Optional arguments that :func:`requests.request` takes.
+        """
+        Send a delete request.
+        :param type:
+        :param id:
+        :param kwargs:
         """
         logger.debug(f'Delete metadata: {self.baseurl}/{type}/{id}')
         del_headers = self.headers.copy()
@@ -138,16 +144,14 @@ class FDPClient:
                 raise
 
     def update(self,type='', id='' , subtype='', data="", format='turtle', **kwargs):
-        """Send an update request.
-        Args:
-            url(str): URL for updating a metadata.
-            data(str, bytes, file-like object or :class:`rdflib.Graph`):
-                the content of metadata to send in the request body.
-            format (str, optional): the format of the metadata.
-                This argument overwrites the request header ``content-type``.
-                Available options are 'turtle', 'n3', 'nt', 'xml' and 'json-ld'.
-                Defaults to 'turtle'.
-            **kwargs: Optional arguments that :func:`requests.request` takes.
+        """
+        Send an update request.
+        :param type: string
+        :param id: string
+        :param subtype: string
+        :param data: string or rdflib.Graph
+        :param format: <string> 'turtle', 'n3', 'nt', 'xml' and 'json-ld'.
+        :param kwargs: further request arguments
         """
         url = f'{self.baseurl}'
         if type is not None and type != "":
@@ -193,6 +197,15 @@ class FDPClient:
         #    print(f"{row.s} dcterms:hasVersion {row.o}")
 
     def createCatalogRDF(self,title,version,publisher,ispartof=None,**kwargs):
+        """
+
+        :param title:
+        :param version:
+        :param publisher:
+        :param ispartof:
+        :param kwargs:
+        :return:
+        """
         catalog = self.catalog_template
         catalog = catalog.replace(f'§§TITLE', str(title))
         if ispartof is None:
@@ -214,6 +227,16 @@ class FDPClient:
         return result_catalog
 
     def createDatasetRDF(self, title, catalogid, version, publisher, themes_list, **kwargs):
+        """
+
+        :param title:
+        :param catalogid:
+        :param version:
+        :param publisher:
+        :param themes_list:
+        :param kwargs:
+        :return:
+        """
         dataset = self.dataset_template
         dataset = dataset.replace(f'§§TITLE', str(title))
         dataset = dataset.replace(f'§§CATALOGID', str(catalogid))
@@ -242,6 +265,16 @@ class FDPClient:
         return result_
 
     def createDistributionRDF(self, title, datasetid, version, publisher, mediatype, **kwargs):
+        """
+
+        :param title:
+        :param datasetid:
+        :param version:
+        :param publisher:
+        :param mediatype:
+        :param kwargs:
+        :return:
+        """
         dataset = self.distribution_template
         dataset = dataset.replace(f'§§TITLE', str(title))
         dataset = dataset.replace(f'§§DATASETID', str(datasetid))
@@ -265,11 +298,24 @@ class FDPClient:
         return result_
 
     def dateTimeToXSDString(self,date_obj):
+        """
+        convert a datetime to FDP compatible string
+        :param date_obj:
+        :return:
+        """
         if isinstance(date_obj,datetime.datetime):
             return f'"{date_obj.isoformat()}"^^xsd:dateTime'
         return date_obj
 
     def _join_list_to_string(self, elements,seperator, prefix,suffix):
+        """
+        join strings
+        :param elements:
+        :param seperator:
+        :param prefix:
+        :param suffix:
+        :return:
+        """
         if isinstance(elements, list):
             ret_string = seperator.join(elements)
             ret_string = f'{prefix}{ret_string}{suffix}'
@@ -277,5 +323,14 @@ class FDPClient:
 
         return str(elements)
 
-
+    def _removePrefix(self,text,prefix):
+        """
+        Remove a prefix from text
+        :param text:
+        :param prefix:
+        :return:
+        """
+        if text.startswith(prefix):
+            return text[len(prefix):]
+        return text
 
