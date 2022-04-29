@@ -1,5 +1,5 @@
-#instance:
-#    clientUrl: http://localhost:8080
+instance:
+    clientUrl: http://localhost:8088
     
 repository:
     type: 5
