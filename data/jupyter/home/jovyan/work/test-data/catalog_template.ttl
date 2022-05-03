@@ -11,7 +11,12 @@ loc:new
     dct:isPartOf <§§ISPARTOF>;
     dct:language <§§LANGUAGE>;
     dct:license <§§LICENSE>;
-    dct:publisher [ a foaf:Agent; foaf:name "§§PUBLISHER" ];
+    dct:publisher [ a foaf:Agent; foaf:name "§§PUBLISHER"; 
+                                  rdf:Description [
+                                      vcard:hasEmail [rdf:resource "§§EMAIL"]; 
+                                      vcard:hasUID [rdf:resource "§§UID"]
+                                  ]
+                  ];
     dct:rights <§§RIGHTS>;
     dct:title "§§TITLE";
     foaf:homePage <§§HOMEPAGE>;
