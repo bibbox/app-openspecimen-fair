@@ -11,10 +11,10 @@ loc:new
     dct:isPartOf <§§ISPARTOF>;
     dct:language <§§LANGUAGE>;
     dct:license <§§LICENSE>;
-    dct:publisher [ a foaf:Agent; foaf:name "§§PUBLISHER"; 
+    dct:publisher [ a foaf:Agent; foaf:name "§§PUBLISHERNAME"; 
                                   rdf:Description [
-                                      vcard:hasEmail [rdf:resource "§§EMAIL"]; 
-                                      vcard:hasUID [rdf:resource "§§UID"]
+                                      vcard:hasEmail [rdf:resource "§§PUBLISHEREMAIL"]; 
+                                      vcard:hasUID [rdf:resource "§§PUBLISHERUID"]
                                   ]
                   ];
     dct:rights <§§RIGHTS>;

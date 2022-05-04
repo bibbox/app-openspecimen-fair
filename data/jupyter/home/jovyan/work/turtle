@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:ldp="http://www.w3.org/ns/ldp#"
+   xmlns:ns1="http://www.re3data.org/schema/3-0#"
+   xmlns:ns2="http://rdf.biosemantics.org/ontologies/fdp-o#"
+   xmlns:ns3="http://semanticscience.org/resource/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://localhost">
+    <dcterms:hasVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</dcterms:hasVersion>
+    <ns1:dataCatalog rdf:resource="http://localhost/catalog/f968a600-bc9d-4de1-a4f7-a66765eb31f7"/>
+    <ns2:metadataModified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-04-27T11:41:58.998000+00:00</ns2:metadataModified>
+    <ns1:dataCatalog rdf:resource="http://localhost/catalog/d3a7cf95-fef9-44a0-be0b-6cd0e6385712"/>
+    <dcterms:conformsTo rdf:resource="https://www.purl.org/fairtools/fdp/schema/0.1/fdpMetadata"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+    <dcterms:description>Duis pellentesque, nunc a fringilla varius, magna dui porta quam, nec ultricies augue turpis sed velit. Donec id consectetur ligula. Suspendisse pharetra egestas massa, vel varius leo viverra at. Donec scelerisque id ipsum id semper. Maecenas facilisis augue vel justo molestie aliquet. Maecenas sed mattis lacus, sed viverra risus. Donec iaculis quis lacus vitae scelerisque. Nullam fermentum lectus nisi, id vulputate nisi congue nec. Morbi fermentum justo at justo bibendum, at tempus ipsum tempor. Donec facilisis nibh sed lectus blandit venenatis. Cras ullamcorper, justo vitae feugiat commodo, orci metus suscipit purus, quis sagittis turpis ante eget ex. Pellentesque malesuada a metus eu pulvinar. Morbi rutrum euismod eros at varius. Duis finibus dapibus ex, a hendrerit mauris efficitur at.</dcterms:description>
+    <rdfs:label>My FAIR Data Point</rdfs:label>
+    <ns3:SIO_000628 rdf:resource="http://localhost/metrics/445c0a70d1e214e545b261559e2842f4"/>
+    <ns2:metadataIssued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-04-27T07:19:35.898000+00:00</ns2:metadataIssued>
+    <dcterms:title>My FAIR Data Point</dcterms:title>
+    <rdf:type rdf:resource="http://www.re3data.org/schema/3-0#Repository"/>
+    <ns1:repositoryIdentifier rdf:resource="http://localhost#identifier"/>
+    <dcterms:license rdf:resource="http://rdflicense.appspot.com/rdflicense/cc-by-nc-nd3.0"/>
+    <dcterms:accessRights rdf:resource="http://localhost#accessRights"/>
+    <dcterms:language rdf:resource="http://id.loc.gov/vocabulary/iso639-1/en"/>
+    <ns2:metadataIdentifier rdf:resource="http://localhost#identifier"/>
+    <ns3:SIO_000628 rdf:resource="http://localhost/metrics/5d27e854a9e78eb3f663331cd47cdc13"/>
+    <dcterms:publisher rdf:resource="http://localhost#publisher"/>
+    <ns1:dataCatalog rdf:resource="http://localhost/catalog/5417cd36-e17a-422e-872c-9e50902bf5ba"/>
+    <dcterms:conformsTo rdf:resource="http://localhost/profile/77aaad6a-0136-4c6e-88b9-07ffccd0ee4c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/metrics/5d27e854a9e78eb3f663331cd47cdc13">
+    <ns3:SIO_000628 rdf:resource="https://www.wikidata.org/wiki/Q8777"/>
+    <ns3:SIO_000332 rdf:resource="https://www.wikidata.org/wiki/Q8777"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost#publisher">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <foaf:name>Default Publisher</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost#identifier">
+    <dcterms:identifier>http://localhost</dcterms:identifier>
+    <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost#accessRights">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
+    <dcterms:description>This resource has no access restriction</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/metrics/445c0a70d1e214e545b261559e2842f4">
+    <ns3:SIO_000628 rdf:resource="https://www.ietf.org/rfc/rfc3986.txt"/>
+    <ns3:SIO_000332 rdf:resource="https://www.ietf.org/rfc/rfc3986.txt"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/catalog/">
+    <dcterms:title>Catalogs</dcterms:title>
+    <ldp:hasMemberRelation rdf:resource="http://www.re3data.org/schema/3-0#dataCatalog"/>
+    <ldp:contains rdf:resource="http://localhost/catalog/5417cd36-e17a-422e-872c-9e50902bf5ba"/>
+    <ldp:contains rdf:resource="http://localhost/catalog/d3a7cf95-fef9-44a0-be0b-6cd0e6385712"/>
+    <ldp:contains rdf:resource="http://localhost/catalog/f968a600-bc9d-4de1-a4f7-a66765eb31f7"/>
+    <ldp:membershipResource rdf:resource="http://localhost"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/ldp#DirectContainer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/profile/77aaad6a-0136-4c6e-88b9-07ffccd0ee4c">
+    <rdfs:label>Repository Profile</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>
