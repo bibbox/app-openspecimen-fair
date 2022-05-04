@@ -2,17 +2,15 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix loc: <§§BASEURL/>.
-@prefix d: <§§BASEURL/dataset/>.
+@prefix n0: <http://>.
 
 loc:new
-    a dcat:Distribution, dcat:Resource;
+    a dcat:Catalog, dcat:Resource;
     dct:description "§§DESCRIPTION";
     dct:hasVersion "§§VERSION";
-    dct:isPartOf d:§§DATASETID;
-    dct:issued §§ISSUED;
+    dct:isPartOf <§§ISPARTOF>;
     dct:language <§§LANGUAGE>;
     dct:license <§§LICENSE>;
-    dct:modified §§MODIFIED;
     dct:publisher [ a foaf:Agent; foaf:name "§§PUBLISHER"; 
                                   rdf:Description [
                                       vcard:hasEmail [rdf:resource "§§EMAIL"]; 
@@ -21,8 +19,5 @@ loc:new
                   ];
     dct:rights <§§RIGHTS>;
     dct:title "§§TITLE";
-    dcat:accessURL <§§ACCESSURL>;
-    dcat:byteSize "§§BYTESIZE";
-    dcat:downloadURL <§§DOWNLOADURL>;
-    dcat:format "§§FORMAT";
-    dcat:mediaType "§§MEDIATYPE".
+    foaf:homePage <§§HOMEPAGE>;
+    .
