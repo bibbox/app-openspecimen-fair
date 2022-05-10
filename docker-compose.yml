@@ -61,7 +61,7 @@ services:
         - ./data/jupyter/home/jovyan/work:/home/jovyan/work
 
   fdp:
-    image: fairdata/fairdatapoint:1.12.0
+    image: fairdata/fairdatapoint:1.13.1
     container_name:  openspecimen-fdp-fdp
     restart: unless-stopped
     networks:
@@ -87,7 +87,7 @@ services:
 #      - virtuoso:db
 
   fdp-client:
-    image: fairdata/fairdatapoint-client:1.12.0
+    image: fairdata/fairdatapoint-client:1.13.0
     container_name:  openspecimen-fdp-fdp-client
     ports:
       - 8088:80
