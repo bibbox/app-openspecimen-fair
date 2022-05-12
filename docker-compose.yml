@@ -48,60 +48,98 @@ services:
       - SYS_NICE 
   # fdp containers
   jupyter-openspecimen-fdp:
-    image: jupyter/datascience-notebook
+    image: jupyter/datascience-notebook:notebook-6.4.11
     container_name:  openspecimen-fdp-jupyter
     restart: unless-stopped
     networks:
       - bibbox-default-network
+    environment:
+      - JUPYTER_TOKEN=FDP
     ports:
         - "8888:8888"
     volumes:
-        - ./home/jovyan/work:/home/jovyan/work
+        - ./data/jupyter/home/jovyan/work:/home/jovyan/work
 
   fdp:
-    image: "nlesc/fairdatapoint"
+    image: fairdata/fairdatapoint:1.13.1
     container_name:  openspecimen-fdp-fdp
     restart: unless-stopped
-    depends_on:
-      - virtuoso
-    environment:
-      - FDP_HOST=0.0.0.0
-      - FDP_PORT=8888
     networks:
       - bibbox-default-network
     ports:
-      - "8080:8888"
-    command: /bin/sh -c 'fdp-run $${FDP_HOST} $${FDP_PORT} --db http://db:8890/sparql'
-    healthcheck:
-        test: curl --silent --fail http://0.0.0.0:$${FDP_PORT} || exit 1
-        interval: 5s
-    links:
-      - virtuoso:db
-    
-    
-
-  fdpsearch:
-    image: "nlesc/fairdatapoint-search"
-    container_name:  openspecimen-fdp-fdpsearch
-    restart: unless-stopped
-    ports:
-      - "8088:8088"
-    environment:
-      - GRLC_SPARQL_ENDPOINT=http://virtuoso:8890/sparql
-      - DEBUG=false
-    depends_on:
-      - virtuoso
-    networks:
-      - bibbox-default-network
-
-  virtuoso:
-    image: "nlesc/virtuoso"
-    container_name:  openspecimen-fdp-virtuoso
-    restart: unless-stopped
-    environment:
-      - SPARQL_UPDATE=true
+      - "8080:80"
     volumes:
-      - ./data/virtuoso:/data   
+      - ./data/application.yml:/fdp/application.yml:ro
+    links:
+      - blazegraph:blazegraph
+      - mongo:mongo
+    environment:
+      - CLIENTURL=http://localhost:8088
+#    depends_on:
+#      - virtuoso
+#    environment:
+#      - FDP_HOST=0.0.0.0
+#      - FDP_PORT=8888
+#    healthcheck:
+#        test: curl --silent --fail http://0.0.0.0:$${FDP_PORT} || exit 1
+#        interval: 5s
+#    links:
+#      - virtuoso:db
+
+  fdp-client:
+    image: fairdata/fairdatapoint-client:1.13.0
+    container_name:  openspecimen-fdp-fdp-client
+    ports:
+      - 8088:80
+    environment:
+      - FDP_HOST=fdp
+    links:
+      - fdp:fdp
     networks:
       - bibbox-default-network
+
+  mongo:
+    image: mongo:4.0.12
+    container_name:  openspecimen-fdp-mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/mongo/data:/data/db
+    networks:
+      - bibbox-default-network
+
+  blazegraph:
+    image: metaphacts/blazegraph-basic:2.2.0-20160908.003514-6
+    container_name:  openspecimen-fdp-blazegraph
+    ports:
+      - 8081:8080
+    volumes:
+      - ./data/blazegraph:/blazegraph-data
+    networks:
+      - bibbox-default-network
+
+#  fdpsearch:
+#    image: "nlesc/fairdatapoint-search"
+#    container_name:  openspecimen-fdp-fdpsearch
+#    restart: unless-stopped
+#    ports:
+#      - "8088:8088"
+#    environment:
+#      - GRLC_SPARQL_ENDPOINT=http://virtuoso:8890/sparql
+#      - DEBUG=false
+#    depends_on:
+#      - virtuoso
+#    networks:
+#      - bibbox-default-network
+
+#  virtuoso:
+#    image: "nlesc/virtuoso"
+#    container_name:  openspecimen-fdp-virtuoso
+#    restart: unless-stopped
+#    environment:
+#      - SPARQL_UPDATE=true
+#    volumes:
+#      - ./data/virtuoso:/data   
+#    networks:
+#      - bibbox-default-network
 

@@ -1,0 +1,55 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dcite: <http://purl.org/spar/datacite/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix language: <http://id.loc.gov/vocabulary/iso639-1/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sio: <http://semanticscience.org/resource/>.
+@prefix wd: <https://www.wikidata.org/wiki/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix c: <http://localhost/catalog/>.
+@prefix n0: <http://localhost/catalog/929a9118-c887-4fc2-ae53-624c0889f35c#>.
+@prefix pro: <http://localhost/profile/>.
+@prefix n1: <http://>.
+@prefix fdp: <http://rdf.biosemantics.org/ontologies/fdp-o#>.
+@prefix met: <http://localhost/catalog/929a9118-c887-4fc2-ae53-624c0889f35c/metrics/>.
+@prefix d: <http://localhost/dataset/>.
+@prefix ldp: <http://www.w3.org/ns/ldp#>.
+
+c:929a9118-c887-4fc2-ae53-624c0889f35c
+    a dcat:Catalog, dcat:Resource;
+    dct:accessRights n0:accessRights;
+    dct:conformsTo pro:a0949e72-4466-4d53-8900-9436d1049a4b;
+    dct:description "Test Catalogue";
+    dct:hasVersion "1";
+    dct:isPartOf n1:localhost;
+    dct:issued "2022-04-26T11:04:11.625Z"^^xsd:dateTime;
+    dct:language language:en;
+    dct:license <http://rdflicense.appspot.com/rdflicense/cc-by-nc-nd3.0>;
+    dct:modified "2022-04-26T11:04:11.625Z"^^xsd:dateTime;
+    dct:publisher [ a foaf:Agent; foaf:name "Mr Catalog" ];
+    dct:title "TestCat02";
+    fdp:metadataIdentifier n0:identifier;
+    fdp:metadataIssued "2022-04-26T11:04:11.625Z"^^xsd:dateTime;
+    fdp:metadataModified "2022-04-26T11:04:11.625Z"^^xsd:dateTime;
+    sio:SIO_000628
+    met:445c0a70d1e214e545b261559e2842f4, met:5d27e854a9e78eb3f663331cd47cdc13;
+    rdfs:label "TestCat01".
+met:445c0a70d1e214e545b261559e2842f4
+    sio:SIO_000332 <https://www.ietf.org/rfc/rfc3986.txt>;
+    sio:SIO_000628 <https://www.ietf.org/rfc/rfc3986.txt>.
+met:5d27e854a9e78eb3f663331cd47cdc13
+sio:SIO_000332 wd:Q8777; sio:SIO_000628 wd:Q8777.
+n0:accessRights
+    a dct:RightsStatement;
+    dct:description "This resource has no access restriction".
+n0:identifier
+    a dcite:Identifier;
+    dct:identifier
+    "http://localhost/catalog/929a9118-c887-4fc2-ae53-624c0889f35c".
+d:
+    a ldp:DirectContainer;
+    dct:title "Datasets";
+    ldp:hasMemberRelation dcat:dataset;
+    ldp:membershipResource c:929a9118-c887-4fc2-ae53-624c0889f35c.
+pro:a0949e72-4466-4d53-8900-9436d1049a4b rdfs:label "Catalog Profile".
