@@ -1,0 +1,121 @@
+version: '3'
+
+networks:
+    bibbox-default-network:
+      external: true
+
+services:
+  # base app
+  §§INSTANCE-openspecimen-fdp-web:
+    image: bibbox/openspecimen:v8-2-RC2
+    container_name: §§INSTANCE-openspecimen-fdp-web
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    links:
+      - §§INSTANCE-openspecimen-fdp-db:openspecimen-db
+    environment:
+      - DATABASE_HOST=openspecimen-db
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    depends_on:
+      - §§INSTANCE-openspecimen-fdp-db
+    volumes:
+      - ./data/os-data:/var/lib/openspecimen/data
+      - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - ./images/openspecimen/configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./images/openspecimen/configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh
+    ports:
+      - "9000:8080"
+
+  §§INSTANCE-openspecimen-fdp-db:
+    image: mysql:8.0.26
+    container_name: §§INSTANCE-openspecimen-fdp-db
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
+    cap_add:
+      - SYS_NICE 
+
+  # fdp containers
+  §§INSTANCE-jupyter-openspecimen-fdp:
+    image: jupyter/datascience-notebook:notebook-6.4.11
+    container_name:  §§INSTANCE-openspecimen-fdp-jupyter
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      - JUPYTER_TOKEN=FDP
+    ports:
+        - "8888:8888"
+    volumes:
+        - ./data/jupyter/home/jovyan/work:/home/jovyan/work
+    proxy:
+      TYPE: HELPER
+      URLPREFIX:  §§INSTANCE-jupyter
+      TEMPLATE: websocket
+      DISPLAYNAME: 'FDPJupyter'
+      PATH_TO_SOCKET: '/api/kernels/'
+
+  §§INSTANCE-fdp:
+    image: fairdata/fairdatapoint:1.13.1
+    container_name:  §§INSTANCE-openspecimen-fdp-fdp
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data/application.yml:/fdp/application.yml:ro
+    links:
+      - §§INSTANCE-blazegraph:blazegraph
+      - §§INSTANCE-mongo:mongo
+    environment:
+      - CLIENTURL=http://§§INSTANCE-fdp-client.§§BASEURL
+
+  §§INSTANCE-fdp-client:
+    image: fairdata/fairdatapoint-client:1.13.0
+    container_name:  §§INSTANCE-openspecimen-fdp-fdp-client
+    ports:
+      - 8088:80
+    environment:
+      - FDP_HOST=fdp
+    links:
+      - §§INSTANCE-fdp:fdp
+    networks:
+      - bibbox-default-network
+    proxy:
+     TYPE: HELPER
+     URLPREFIX: §§INSTANCE-fdp-client
+     TEMPLATE: default
+     DISPLAYNAME: 'Molgenis-FDP-Client' 
+
+  §§INSTANCE-mongo:
+    image: mongo:4.0.12
+    container_name:  §§INSTANCE-openspecimen-fdp-mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/mongo/data:/data/db
+    networks:
+      - bibbox-default-network
+
+  §§INSTANCE-blazegraph:
+    image: metaphacts/blazegraph-basic:2.2.0-20160908.003514-6
+    container_name:  §§INSTANCE-openspecimen-fdp-blazegraph
+    ports:
+      - 8081:8080
+    volumes:
+      - ./data/blazegraph:/blazegraph-data
+    networks:
+      - bibbox-default-network
