@@ -1,0 +1,10 @@
+{
+	"name": "OpenSpecimenFAIR v8.2.RC2",
+	"short_name": "OpenSpecimenFDP",
+	"version": "v8.2.RC2",
+	"description": "OpenSpecimen Version 8.2.RC2",
+	"catalogue_url": "http://biobankapps.com/software/view?id=26",
+	"application_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/1115878/End+User+Training",
+	"tags": ["Sample Management", "BIMS"],
+	"application_documentation_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT"
+}
