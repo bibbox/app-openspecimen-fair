@@ -29,6 +29,11 @@ services:
       - ./images/openspecimen/configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh
     ports:
       - "9000:8080"
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX: §§INSTANCE
+     TEMPLATE: default
+     DISPLAYNAME: 'Openspecimen'
 
   §§INSTANCE-openspecimen-fdp-db:
     image: mysql:8.0.26
