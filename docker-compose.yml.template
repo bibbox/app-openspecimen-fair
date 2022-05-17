@@ -59,8 +59,14 @@ services:
     restart: unless-stopped
     networks:
       - bibbox-default-network
+    links:
+      - §§INSTANCE-openspecimen-fdp-web:openspecimen
+      - §§INSTANCE-fdp-client:fdp-client
     environment:
-      - JUPYTER_TOKEN=FDP
+      - JUPYTER_TOKEN=§§JUPYTER_TOKEN
+      - FDP_TITLE=§§FDP_TITLE
+      - FDP_DESCRIPTION=§§FDP_DESCRIPTION
+      - FDP_PUBLICURL=http://§§INSTANCE-fdp-client.§§BASEURL
     ports:
         - "8888:8888"
     volumes:
