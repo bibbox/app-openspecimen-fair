@@ -16,5 +16,32 @@
 	   "description":"The Password of the DB User created for OpenSpecimen",
 	   "min_length": "1",
 	   "max_length": "128"
-	}
+	},
+	{
+        "id":"JUPYTER_TOKEN",
+        "display_name":"Jupyter access token",
+        "type":"text",
+        "default_value":"Default Value",
+        "description":"",
+        "min_length": "1",
+        "max_length": "128"
+     },
+     {
+        "id":"FDP_TITLE",
+        "display_name":"FDP Title",
+        "type":"text",
+        "default_value":"Default Value",
+        "description":"",
+        "min_length": "1",
+        "max_length": "128"
+     },
+     {
+        "id":"FDP_DESCRIPTION",
+        "display_name":"FDP Description",
+        "type":"text",
+        "default_value":"Default Value",
+        "description":"",
+        "min_length": "1",
+        "max_length": "128"
+     }
  ]
