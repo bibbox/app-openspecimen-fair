@@ -109,7 +109,7 @@ services:
      TYPE: HELPER
      URLPREFIX: §§INSTANCE-fdp-client
      TEMPLATE: default
-     DISPLAYNAME: 'Molgenis-FDP-Client' 
+     DISPLAYNAME: 'Openspecimen-FDP-Client' 
 
   §§INSTANCE-mongo:
     image: mongo:4.0.12
