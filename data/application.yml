@@ -6,8 +6,8 @@ repository:
     blazegraph:
         url: http://blazegraph:8080/blazegraph
         
-#ping:
-#    endpoint: http://bibbox-master-fdp
-#    interval: 60000 # milliseconds (only for test increase in production)
-
+ping:
+    enabled: true
+    endpoint: http://bibbox-sys-commander-master-fdp-client
+    interval: 1800000 # milliseconds (only for test increase in production)
 
