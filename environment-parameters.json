@@ -43,5 +43,66 @@
         "description":"",
         "min_length": "1",
         "max_length": "128"
-     }
+     },
+	{
+	   "id":"CATALOG_TITLE",
+	   "display_name":"Catalog Title",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
+	{
+	   "id":"CATALOG_DESCRIPTION",
+	   "display_name":"Catalog Describtion",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
+	{
+	   "id":"VERSION",
+	   "display_name":"Version",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
+	{
+	   "id":"PUBLISHERNAME",
+	   "display_name":"Name of Publisher",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
+	{
+	   "id":"PUBLISHEREMAIL",
+	   "display_name":"Email of Publisher",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"",
+	   "min_length": "1",
+	   "max_length": "128"
+	},	{
+	   "id":"PUBLISHERUID",
+	   "display_name":"UID of Publisher",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"Unique id of Publisher e.g. ORCID",
+	   "min_length": "1",
+	   "max_length": "128"
+	},	{
+	   "id":"LANGUAGE",
+	   "display_name":"Language",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"Language of Catalog and Dataset in IRI format. e.g. http://id.loc.gov/vocabulary/iso639-1/en",
+	   "min_length": "1",
+	   "max_length": "128"
+	}
  ]
