@@ -51,6 +51,11 @@ services:
     image: jupyter/datascience-notebook:notebook-6.4.11
     container_name:  openspecimen-fdp-jupyter
     restart: unless-stopped
+    links:
+      - openspecimen-fdp-web:openspecimen
+      - fdp-client:fdp-client
+      - openspecimen-pap-neo4j:pap-neo4j
+
     networks:
       - bibbox-default-network
     environment:
@@ -117,6 +122,27 @@ services:
       - ./data/blazegraph:/blazegraph-data
     networks:
       - bibbox-default-network
+
+  openspecimen-pap-neo4j:
+    image: neo4j:3.5
+    container_name: openspecimen-pap-neo4j
+    restart: unless-stopped
+    ports:
+      - 7474:7474
+      - 7687:7687
+    networks:
+      - bibbox-default-network
+    volumes:
+      - ./data/neo4j/conf:/conf
+      - ./data/neo4j/data:/data
+      - ./data/neo4j/import:/import
+      - ./data/neo4j/logs:/logs
+      - ./data/neo4j/plugins:/plugins
+    environment: 
+      # Raise memory limits
+      - NEO4J_dbms_memory_pagecache_size=1G
+      - NEO4J_dbms.memory.heap.initial_size=1G
+      - NEO4J_dbms_memory_heap_max__size=1G
 
 #  fdpsearch:
 #    image: "nlesc/fairdatapoint-search"
