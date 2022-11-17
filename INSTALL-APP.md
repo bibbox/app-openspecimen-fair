@@ -11,7 +11,7 @@
 ### Log in with the default credentials 
 The default admin user name is "admin". The default admin password is "admin".
 
-* After logging into the application, the user will have access to the Open Specimen dashboard and the application is ready to user
+* After logging into the application, the user will have access to the Open Specimen dashboard and the application is ready to use
 * Don't forget to change the default access credentials!
 * See the [OpenSpecimen Manual](https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/7700605/User+Manual+Community+Edition) for more information
 
