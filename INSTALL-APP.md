@@ -24,7 +24,7 @@ The FAIR Data Point will take the required information from the collection proto
    2) Here, click import and select the cp_fdp_attributes.xml file. The imported form will open, click "done" at the buttom of the page.
    3) After importing, we have to tell OpenSpecimen where we would like to attach this form to.  Click on the wrench icon next to the form. ![attach_form](assets/attach_form.png)
    4) Select "Collection Protocol Custom Fields" in the next window and attach the form to all present and future collection protocols. 
-2) When you now create a new collection protocol or edit an already existing one, you can enter the FDP required information at the bottom ![cp_with_fdp_attributes](assets/cp_with_fdp_attributes.png) 
+2) When you now create a new **collection protocol** or edit an already existing one, you can enter the FDP required information at the bottom ![cp_with_fdp_attributes](assets/cp_with_fdp_attributes.png) 
 
 
 
