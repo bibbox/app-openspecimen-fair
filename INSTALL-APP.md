@@ -19,7 +19,7 @@ The default admin user name is "admin". The default admin password is "admin".
 Follow these steps to make the app FAIR (**F**indable, **A**ccessible, **I**nteroperable and **R**eusable).
 
 The FAIR Data Point will take the required information from the collection protocols as well as specifically designed forms:
-1) upload the FDP form (data/openspecimen_fdp_form/cp_fdp_attributes.xml) to Openspecimen. 
+1) In oder to upload the FDP form (data/openspecimen_fdp_form/cp_fdp_attributes.xml) to Openspecimen: 
    1) In OpenSpecimen, use the Menu bar to navigate to the Forms page
    2) Here, click import and select the cp_fdp_attributes.xml file. The imported form will open, click "done" at the buttom of the page.
    3) After importing, we have to tell OpenSpecimen where we would like to attach this form to.  Click on the wrench icon next to the form. ![attach_form](assets/attach_form.png)
