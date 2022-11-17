@@ -7,7 +7,7 @@ networks:
 services:
   # base app
   §§INSTANCE-openspecimen-fdp-web:
-    image: bibbox/openspecimen:v8-2-RC2
+    image: bibbox/openspecimen:9-0-RC2
     container_name: §§INSTANCE-openspecimen-fdp-web
     restart: unless-stopped
     networks:
@@ -163,6 +163,8 @@ services:
     proxy:
      TYPE: HELPER
      URLPREFIX: §§INSTANCE-pap-noe4j
-     TEMPLATE: default
+     TEMPLATE: websocket
      DISPLAYNAME: 'Openspecimen-PAP-Neo4j' 
+     PATH_TO_SOCKET: '/'
+
 
