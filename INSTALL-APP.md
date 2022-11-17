@@ -16,7 +16,7 @@ The default admin user name is "admin". The default admin password is "admin".
 * See the [OpenSpecimen Manual](https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/7700605/User+Manual+Community+Edition) for more information
 
 #### FAIRification
-Follow these steps to make the app FAIR (**F**indable, **A**ccessible, **I**nteroperable and **R**usable).
+Follow these steps to make the app FAIR (**F**indable, **A**ccessible, **I**nteroperable and **R**eusable).
 
 The FAIR Data Point will take the required information from the collection protocols as well as specifically designed forms:
 1) upload the FDP form (data/openspecimen_fdp_form/cp_fdp_attributes.xml) to Openspecimen. 
