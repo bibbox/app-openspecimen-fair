@@ -9,7 +9,7 @@
 * Log into Open Specimen with default admin user "admin" and password "Login@123"
 
 ### Log in with the default credentials 
-The default admin user name is "admin". The default admin password is "admin".
+The default admin user name is "admin". The default admin password is "Login@123".
 
 * After logging into the application, the user will have access to the Open Specimen dashboard and the application is ready to use
 * Don't forget to change the default access credentials!
