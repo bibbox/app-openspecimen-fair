@@ -80,16 +80,6 @@ services:
       - mongo:mongo
     environment:
       - CLIENTURL=http://localhost:8088
-#    depends_on:
-#      - virtuoso
-#    environment:
-#      - FDP_HOST=0.0.0.0
-#      - FDP_PORT=8888
-#    healthcheck:
-#        test: curl --silent --fail http://0.0.0.0:$${FDP_PORT} || exit 1
-#        interval: 5s
-#    links:
-#      - virtuoso:db
 
   fdp-client:
     image: fairdata/fairdatapoint-client:1.13.0
