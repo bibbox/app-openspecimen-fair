@@ -1,6 +1,6 @@
 # OPENSPECIMEN FAIR Toolbox application
 
-This container can be installed as [BIBBOX(V4) APP] https://bibbox.readthedocs.io/en/latest/installation_v4_apps/ or standalone. 
+This container can be installed as [BIBBOX(V4) APP](https://bibbox.readthedocs.io/en/latest/installation_v4_apps/) or standalone. 
 * the standalone installation uses the **docker-compose.yml**, for the installation as a BIBBOX(V4) APP the **docker-compose.yml.template** is considered.
 
 After the installation follow these [instructions](INSTALL-APP.md)
