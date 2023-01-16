@@ -1,15 +1,11 @@
 # OPENSPECIMEN FAIR Toolbox application
 
-This container can be installed as [BIBBOX(V4) APP](https://bibbox.readthedocs.io/en/latest/installation_v4_apps/) or standalone. 
-* the standalone installation uses the **docker-compose.yml**, for the installation as a BIBBOX(V4) APP the **docker-compose.yml.template** is considered.
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/installation_v4_apps/) or standalone. 
 
-After the installation follow these [instructions](INSTALL-APP.md)
 
-## Hints
-
-* approx. time with medium fast internet connection: **5 minutes**
 * initial user: ** admin **
 * initial password: ** Login@123 **
+* After the installation follow these [instructions](INSTALL-APP.md)
 
 
 ## Docker Images Used 
@@ -19,11 +15,20 @@ After the installation follow these [instructions](INSTALL-APP.md)
  
 
 ## Standalone Installation 
+Clone the github repsoitory. If necessary change the ports and volume mounts in `docker-compose.yml`.
 
-The following steps must be executed:
-* 1) set the permission for the data folder (inside the root folder of the project) like: sudo chmod -R 777 data 
-* 2) run **docker-compose up** in the root folder of the project. After a few minutes OpenSpecimen is reachable via **http://localhost:9000/openspecimen**.
-* The port and default Environment variables for the used containers are set within the **docker-compose.yml** and can be adapted if desired.
+```
+git clone https://github.com/bibbox/app-openspecimen-fair
+cd app-openspecimen-fair
+mkdir data
+docker-compose up -d
+```
+
+The main app can be opened at 
+
+```
+http://localhost:9000/openspecimen
+```
 
 
 ## Install Environment Variables
@@ -34,7 +39,8 @@ The following steps must be executed:
   * MYSQL_PASSWORD = mysql user password used for Openspecimen DB
 
 ------------------------------------------------------------------------------------------
-## In case the installation process reccurently shows the following information message
+## Trouzbleshooting
+### In case the installation process reccurently shows the following information message
 
 INFO  liquibase.executor.jvm.JdbcExecutor- SELECT `LOCKED` FROM openspecimen.DATABASECHANGELOGLOCK WHERE ID=1
 INFO  liquibase.lockservice.StandardLockService- Waiting for changelog lock....
