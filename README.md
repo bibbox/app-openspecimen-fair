@@ -1,6 +1,6 @@
 # OPENSPECIMEN FAIR Toolbox application
 
-This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/installation_v4_apps/) or standalone. 
+This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en/latest/) or standalone. 
 
 
 * initial user: ** admin **
