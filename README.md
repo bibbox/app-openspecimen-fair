@@ -39,7 +39,7 @@ http://localhost:9000/openspecimen
   * MYSQL_PASSWORD = mysql user password used for Openspecimen DB
 
 ------------------------------------------------------------------------------------------
-## Trouzbleshooting
+## Troubleshooting
 ### In case the installation process reccurently shows the following information message
 
 INFO  liquibase.executor.jvm.JdbcExecutor- SELECT `LOCKED` FROM openspecimen.DATABASECHANGELOGLOCK WHERE ID=1
