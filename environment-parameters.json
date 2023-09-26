@@ -3,7 +3,7 @@
 	   "id":"MYSQL_DATABASE_USER",
 	   "display_name":"Name of the mysql user",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"user",
 	   "description":"The User of the DB created for OpenSpecimen",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -12,7 +12,7 @@
 	   "id":"MYSQL_DATABASE_PASSWORD",
 	   "display_name":"Password of mySQL user",
 	   "type":"password",
-	   "default_value":"Default Value",
+	   "default_value":"changethisdatabasepasswordinproductionenvironments",
 	   "description":"The Password of the DB User created for OpenSpecimen",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -21,7 +21,7 @@
         "id":"JUPYTER_TOKEN",
         "display_name":"Jupyter access token",
         "type":"text",
-        "default_value":"Default Value",
+        "default_value":"token",
         "description":"",
         "min_length": "1",
         "max_length": "128"
@@ -30,7 +30,7 @@
         "id":"FDP_TITLE",
         "display_name":"FDP Title",
         "type":"text",
-        "default_value":"Default Value",
+        "default_value":"fdp title",
         "description":"",
         "min_length": "1",
         "max_length": "128"
@@ -39,7 +39,7 @@
         "id":"FDP_DESCRIPTION",
         "display_name":"FDP Description",
         "type":"text",
-        "default_value":"Default Value",
+        "default_value":"enter description",
         "description":"",
         "min_length": "1",
         "max_length": "128"
@@ -48,7 +48,7 @@
 	   "id":"CATALOG_TITLE",
 	   "display_name":"Catalog Title",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"catalog title",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -57,7 +57,7 @@
 	   "id":"CATALOG_DESCRIPTION",
 	   "display_name":"Catalog Describtion",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"catalog description",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -66,7 +66,7 @@
 	   "id":"VERSION",
 	   "display_name":"Version",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"enter version",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -75,7 +75,7 @@
 	   "id":"PUBLISHERNAME",
 	   "display_name":"Name of Publisher",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"publisher name",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -84,7 +84,7 @@
 	   "id":"PUBLISHEREMAIL",
 	   "display_name":"Email of Publisher",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"publisher@mail.com",
 	   "description":"",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -92,7 +92,7 @@
 	   "id":"PUBLISHERUID",
 	   "display_name":"UID of Publisher",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"uid",
 	   "description":"Unique id of Publisher e.g. ORCID",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -100,7 +100,7 @@
 	   "id":"LANGUAGE",
 	   "display_name":"Language",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"language",
 	   "description":"Language of Catalog and Dataset in IRI format. e.g. http://id.loc.gov/vocabulary/iso639-1/en",
 	   "min_length": "1",
 	   "max_length": "128"
