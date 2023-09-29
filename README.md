@@ -67,23 +67,23 @@ The default values for the standalone installation are:
 
   
 ## Mounted Volumes
-### bibbox/openspecimen Conatiner
+### bibbox/openspecimen Container
   - *./data/os-data:/var/lib/openspecimen/data*
   - *./data/os-plugins:/var/lib/openspecimen/plugins*
   - *./images/openspecimen/configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT*
   - *./images/openspecimen/configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh*
-### mysql Conatiner
+### mysql Container
   - *./data/mysql:/var/lib/mysql*
   - *./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro*
-### jupyter/datascience-notebook Conatiner
+### jupyter/datascience-notebook Container
   - *./data/jupyter/home/jovyan/work:/home/jovyan/work*
-### fairdata/fairdatapoint Conatiner
+### fairdata/fairdatapoint Container
   - *./data/application.yml:/fdp/application.yml:ro*
-### mongo Conatiner
+### mongo Container
   - *./data/mongo/data:/data/db*
-### metaphacts/blazegraph-basic Conatiner
+### metaphacts/blazegraph-basic Container
   - *./data/blazegraph:/blazegraph-data*
-### neo4j Conatiner
+### neo4j Container
   - *./data/neo4j/conf:/conf*
   - *./data/neo4j/data:/data*
   - *./data/neo4j/import:/import*
