@@ -4,6 +4,11 @@ This container can be installed as [BIBBOX APP](https://bibbox.readthedocs.io/en
 
 After the docker installation follow these [instructions](INSTALL-APP.md).
 
+•	initial user: ** admin **
+
+•	initial password: ** Login@123 **
+
+
 ## Standalone Installation 
 
 Clone the github repository. If necessary change the ports in the environment file `.env` and the volume mounts in `docker-compose.yml`.
@@ -89,4 +94,20 @@ The default values for the standalone installation are:
   - *./data/neo4j/import:/import*
   - *./data/neo4j/logs:/logs*
   - *./data/neo4j/plugins:/plugins*
+
+## Troubleshooting
+
+### In case the installation process reccurently shows the following information message
+
+INFO liquibase.executor.jvm.JdbcExecutor- SELECT LOCKED FROM openspecimen.DATABASECHANGELOGLOCK WHERE ID=1 INFO liquibase.lockservice.StandardLockService- Waiting for changelog lock....
+and the installationis not proceeding, do the following:
+
+•	Enter your mysql:8.0.26 container (Attach Shell to it) and execute the commands listed below:
+
+mysql -uroot -p'openspecimen'
+USE openspecimen
+SELECT * from DATABASECHANGELOGLOCK;
+UPDATE DATABASECHANGELOGLOCK SET LOCKED=FALSE, LOCKGRANTED=null, LOCKEDBY=null where ID=1;
+
+•	and rerun docker-compose up in the root folder of the project.
 
