@@ -105,8 +105,11 @@ and the installationis not proceeding, do the following:
 •	Enter your mysql:8.0.26 container (Attach Shell to it) and execute the commands listed below:
 
 mysql -uroot -p'openspecimen'
+
 USE openspecimen
+
 SELECT * from DATABASECHANGELOGLOCK;
+
 UPDATE DATABASECHANGELOGLOCK SET LOCKED=FALSE, LOCKGRANTED=null, LOCKEDBY=null where ID=1;
 
 •	and rerun docker-compose up in the root folder of the project.
