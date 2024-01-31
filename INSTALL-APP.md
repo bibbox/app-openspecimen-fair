@@ -65,7 +65,7 @@ OpenSpecimen default credentials: user: "admin", password: "Login@123"
 Browsing data is possible without login! 
 
 #### Set up Provenance Access Point
-Open the Neo4j Browser, either via the app dashboard or by changing the subdomain of the URL to `<instancename>-pap-noe4j`
+Open the Neo4j Browser, either via the app details in the Bibbox Instances-page or by changing the subdomain of the URL to `<instancename>-pap-noe4j`
 Login with username: "neo4j", password: "neo4j". You will be asked to set a new password, remember it!
 
 
