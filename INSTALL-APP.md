@@ -49,7 +49,7 @@ The FAIR Data Point will take the required information from the collection proto
 
 Open Jupyter via the app details in the Bibbox Instances-page or by changing the subdomain of the URL to `<instancename>-jupyter`:
 ![os_jupyter_dashboard](assets/os_jupyter_dashboard.png)
-Access Token is: FDP
+Access Token was set during installation (default: token)
 1) Open Jupyter Notebook (/work/fillFDP.ipynb) 
     
 2) Set user credentials for the FAIR Data Point and OpenSpecimen
