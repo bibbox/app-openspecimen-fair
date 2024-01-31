@@ -47,7 +47,7 @@ The FAIR Data Point will take the required information from the collection proto
 
 #### Set up FAIR Data Point.
 
-Open Jupyter via the app dashboard or by changing the subdomain of the URL to `<instancename>-jupyter`:
+Open Jupyter via the app details in the Bibbox Instances-page or by changing the subdomain of the URL to `<instancename>-jupyter`:
 ![os_jupyter_dashboard](assets/os_jupyter_dashboard.png)
 Access Token is: FDP
 1) Open Jupyter Notebook (/work/fillFDP.ipynb) 
