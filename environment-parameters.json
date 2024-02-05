@@ -55,7 +55,7 @@
 	},
 	{
 	   "id":"CATALOG_DESCRIPTION",
-	   "display_name":"Catalog Describtion",
+	   "display_name":"Catalog Description",
 	   "type":"text",
 	   "default_value":"catalog description",
 	   "description":"",
