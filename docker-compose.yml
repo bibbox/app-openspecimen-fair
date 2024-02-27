@@ -84,6 +84,7 @@ services:
   fdp-client:
     image: fairdata/fairdatapoint-client:1.13.0
     container_name:  openspecimen-fdp-fdp-client
+    restart: unless-stopped
     ports:
       - 8088:80
     environment:
@@ -96,6 +97,7 @@ services:
   mongo:
     image: mongo:4.0.12
     container_name:  openspecimen-fdp-mongo
+    restart: unless-stopped
     ports:
       - 27017:27017
     volumes:
@@ -106,6 +108,7 @@ services:
   blazegraph:
     image: metaphacts/blazegraph-basic:2.2.0-20160908.003514-6
     container_name:  openspecimen-fdp-blazegraph
+    restart: unless-stopped
     ports:
       - 8081:8080
     volumes:
